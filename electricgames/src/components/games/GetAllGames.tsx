@@ -13,13 +13,11 @@ const GetAllGames = () => {
 
     return (
         <section className="page-content-choice">
-            
-            <p>Number of games in the database: {games.length}</p>
-            <section className="page-result">
-                <GameList />
-            </section>
+            <GameList />
         </section>
     )
+
+    //<p>Number of games in the database: {games.length}</p>
 }
 
 export default GetAllGames

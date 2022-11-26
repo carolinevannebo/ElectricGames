@@ -63,11 +63,12 @@ const GameList = () => {
     };
 
     return (
-        <section>
-            <h3>Games</h3>
-            <section>{getGameItems()}</section>
+        <section className="page-result">
+            <section className="list-container">{getGameItems()}</section>
         </section>
     )
+
+    //<h3>Games</h3>
 }
 
 export default GameList;

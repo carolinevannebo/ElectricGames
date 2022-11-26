@@ -5,8 +5,8 @@
 }
 
 #root {
-  min-height: 100vh;
-  min-width: 100vw;
+  height: 100vh;
+  width: 100vw;
   overflow-x: hidden;
 }
 
@@ -15,37 +15,62 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /*height: 100vh;*/
   min-width: 100vw;
-  background-color: #300836;
+  background-color: #010426f3;
+  padding: 1rem;
 }
 
 .section-container {
   width: 100vw;
-  height: 100vh;
+  max-height: 75vh; /**/
+  min-height: 55vh;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(6, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
 
-.page-menu { grid-area: 1 / 1 / 7 / 2; }
-
-.page-content { 
-  grid-area: 1 / 2 / 7 / 4; 
+.page-menu { 
+  grid-area: 1 / 1 / 7 / 2;
 }
 
-.page-content-choice { grid-area: 1 / 2 / 4 / 5; }
+.page-content { 
+  grid-area: 1 / 2 / 7 / 6; 
+  max-width: 90%;
+  margin: 2rem 2rem 1rem 0rem;
+  overflow-y: scroll;
+}
+
+.page-content-choice { 
+  grid-area: 1 / 2 / 4 / 5; 
+  display: flex;
+  flex-direction: column;
+}
 
 .page-result { 
   grid-area: 4 / 2 / 7 / 5;
   max-height: 80vh;
-  overflow-y: scroll;
+  /*overflow-y: scroll;*/
+}
+
+.list-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /*grid-template-rows: repeat(2, 1fr);*/
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-auto-flow: row;
 }
 
 h1 {
+  margin-left: 15px;
   font-size: 2rem;
+  color: rgb(255, 115, 39);
+  text-transform: uppercase;
+  font-family: 'Mina-Bold';
 }
 
 .page-menu li {
@@ -57,18 +82,25 @@ h1 {
   background-color: #040424;
   cursor: pointer;
   transition: ease-in-out 0.3s;
-  width: 40%;
+  width: 80%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
 .page-menu li a{
+  margin-left: 1rem;
   text-align: center;
   font-weight: 500;
+  text-overflow: clip;
 }
 .page-menu li a:hover {
   color: #0cf4f6;
+}
+
+@font-face {
+  font-family: 'Mina-Bold';
+  src: url(../../assets/fonts/Mina/Mina-Bold.ttf);
 }
 
 /*.App {
