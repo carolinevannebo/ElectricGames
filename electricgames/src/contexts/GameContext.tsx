@@ -10,10 +10,16 @@ type Props = { children: ReactNode };
 const GameProvider = ({ children }: Props) => {
 
     const [games, setGame] = useState<IGame[]>([]);
+    //const [image, setImage] = useState<string>("");
+    //const [image, setImage] = useState<File | null>(null); // i components kanskje?
 
     useEffect(() => {
         getAllGamesFromService();
     }, []);
+
+    const getImagePathFromService = async () => {
+        return await GameService.getImagePathFromServer();
+    }
 
     const getAllGamesFromService = async () => {
         const response = await GameService.getAllGamesFromServer();
@@ -35,7 +41,7 @@ const GameProvider = ({ children }: Props) => {
         //setGame(response);
     }
 
-    const getGamesByGenreFromService = async (genre: string) => {
+    const getGamesByGenreFromService = async (genre: number) => {
         const response = await GameService.getGamesByGenreFromServer(genre);
         const array = [];
         array.push(response);
@@ -65,6 +71,7 @@ const GameProvider = ({ children }: Props) => {
     <GameContext.Provider 
         value={{
             games, 
+            getImagePathFromService,
             getAllGamesFromService,
             getGameByIdFromService,
             getGameByTitleFromService,

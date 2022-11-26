@@ -16,12 +16,12 @@ public class LocationController : ControllerBase
 {
     private readonly ElectricGamesContext _context;
 
-    private readonly IWebHostEnvironment _hosting;
+    //private readonly IWebHostEnvironment _hosting;
 
     public LocationController(ElectricGamesContext context, IWebHostEnvironment hosting)
     {
         _context = context;
-        _hosting = hosting;
+        //_hosting = hosting;
     }
 
     // GET: api/Location
@@ -139,7 +139,7 @@ public class LocationController : ControllerBase
         }
     }
 
-    [HttpPost]
+   /*[HttpPost]
     public IActionResult SaveImage([FromForm] IFormFile file) //mulig du må fjerne [FromForm]
     {
         string wwwrootPath = _hosting.WebRootPath;
@@ -156,7 +156,7 @@ public class LocationController : ControllerBase
         {
             return BadRequest("File upload failed");
         }
-    }
+    }*/
 
     // DELETE: api/Location/5
     [HttpDelete("{id}")]

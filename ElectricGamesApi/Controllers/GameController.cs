@@ -16,12 +16,12 @@ public class GameController : ControllerBase
 {
     private readonly ElectricGamesContext _context;
 
-    private readonly IWebHostEnvironment _hosting;
+    //private readonly IWebHostEnvironment _hosting;
 
     public GameController(ElectricGamesContext context, IWebHostEnvironment hosting)
     {
         _context = context;
-        _hosting = hosting;
+        //_hosting = hosting;
     }
 
     // GET: api/Game
@@ -186,7 +186,7 @@ public class GameController : ControllerBase
         }
     }
 
-    [HttpPost]
+    /*[HttpPost]
     public IActionResult SaveImage([FromForm] IFormFile file) //mulig du må fjerne [FromForm]
     {
         string wwwrootPath = _hosting.WebRootPath;
@@ -203,7 +203,7 @@ public class GameController : ControllerBase
         {
             return BadRequest("File upload failed");
         }
-    }
+    }*/
 
     // DELETE: api/Game/5
     [HttpDelete("{id}")]

@@ -21,7 +21,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+app.UseStaticFiles();
 app.UseCors("AllowAll");
+
+DefaultFilesOptions options = new DefaultFilesOptions();
+options.DefaultFileNames.Add("index.html");
+app.UseDefaultFiles(options);
 /*
 DefaultFilesOptions options = new DefaultFilesOptions();
 options.DefaultFileNames.Clear();

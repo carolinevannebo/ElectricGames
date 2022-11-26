@@ -15,12 +15,12 @@ public class CharacterController : ControllerBase
 {
     private readonly ElectricGamesContext _context;
 
-    private readonly IWebHostEnvironment _hosting;
+    //private readonly IWebHostEnvironment _hosting;
 
     public CharacterController(ElectricGamesContext context, IWebHostEnvironment hosting)
     {
         _context = context;
-        _hosting = hosting;
+        //_hosting = hosting;
     }
 
     // GET: api/Character
@@ -117,7 +117,7 @@ public class CharacterController : ControllerBase
         
     }
 
-    [HttpPost]
+    /*[HttpPost]
     public IActionResult SaveImage([FromForm] IFormFile file) //mulig du må fjerne [FromForm]
     {
         string wwwrootPath = _hosting.WebRootPath;
@@ -134,7 +134,7 @@ public class CharacterController : ControllerBase
         {
             return BadRequest("File upload failed");
         }
-    }
+    }*/
 
     // PUT: api/Character/5
     [HttpPut("{id}")]

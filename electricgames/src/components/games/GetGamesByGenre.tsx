@@ -20,22 +20,46 @@ const GetGamesByGenre = () => {
         setGenre((genre as string));
     }
 
-    const handleGenreException = (genre: string) => {
+    const convertGenreToNumber = (genre: string) => {
         switch (genre) {
-            case "Actionadventure":
-                return "ActionAdventure";
-            case "Roleplaying":
-                return "RolePlaying";
-            case "Mmo":
-                return "MMO";
+            case "Action":
+                return 0;
+            case "ActionAdventure":
+                return 1;
+            case "Adventure":
+                return 2;
+            case "Fighting":
+                return 3;
+            case "Horror":
+                return 4;
+            case "MMO":
+                return 5;
+            case "Platformer":
+                return 6;
+            case "Puzzle":
+                return 7;
+            case "Racing":
+                return 8;
+            case "RolePlaying":
+                return 9;
+            case "SandBox":
+                return 10;
+            case "Shooter":
+                return 11;
+            case "Simulation":
+                return 12;
+            case "Sports":
+                return 13;
+            case "Strategy":
+                return 14;
             default:
-                return genre;
+                return 15;
         }
     };
 
-    useEffect(() => {
-        getGamesByGenreFromService(genre);
-    }, [genre, getGamesByGenreFromService]);
+    useEffect(() => { // du la på convertGenreToNumber, og har endret genre til number overalt
+        getGamesByGenreFromService(convertGenreToNumber(genre));
+    }, [convertGenreToNumber(genre), getGamesByGenreFromService]);
 
     return (
         <section className="page-content-choice">
