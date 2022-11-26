@@ -1,0 +1,87 @@
+/* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}*/
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #010426;
+    height: 45vh;
+    min-width: 100vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.img-container {
+    position: absolute;
+    top: 0;
+    height: 85%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.img-container a {
+    position: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.img-logo {
+    position: inherit;
+    top: 5%;
+    height: 90%;
+    object-fit: contain;
+}
+
+nav {
+    position: absolute;
+    bottom: 0;
+    height: 15%;
+    width: 100%;
+}
+
+nav ul {
+    padding: 0 10px;
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    height: 100%;
+}
+nav ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Mina-Bold';
+}
+
+nav ul li a {
+    transition: ease-in-out .5s;
+    border-radius: 2px;
+    padding: 2px 3px 1px 3px;
+
+}
+
+nav ul li a:hover {
+    background-color: #0cf4f6;
+    color: #550c43;
+}
+
+a {
+    text-decoration: none;
+    color: #e51b79;
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+@font-face {
+    font-family: 'Mina-Bold';
+    src: url(../../assets/fonts/Mina/Mina-Bold.ttf);
+}
