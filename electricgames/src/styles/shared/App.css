@@ -21,22 +21,25 @@
 }
 
 .section-container {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(6, 1fr);
-  grid-column-gap: 15px;
-  grid-row-gap: 10px;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
 
 .page-menu { grid-area: 1 / 1 / 7 / 2; }
-.page-content { grid-area: 1 / 2 / 7 / 4; }
 
-.page-content-choice { grid-area: 1 / 2 / 4 / 4; }
+.page-content { 
+  grid-area: 1 / 2 / 7 / 4; 
+}
+
+.page-content-choice { grid-area: 1 / 2 / 4 / 5; }
 
 .page-result { 
-  grid-area: 4 / 2 / 7 / 4;
+  grid-area: 4 / 2 / 7 / 5;
   max-height: 80vh;
   overflow-y: scroll;
 }

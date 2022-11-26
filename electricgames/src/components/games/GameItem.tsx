@@ -1,16 +1,10 @@
 import IGame from "../../interfaces/games/IGame";
-import IGameContext from "../../interfaces/games/IGameContext";
-import { GameContext } from "../../contexts/GameContext";
-import { useState, useEffect, useContext } from "react";
+import '../../styles/shared/Item.css';
 
-const GameItem = ({ id, title, genre, platform, developer, publisher, releaseDate, price, rating, description, image  }: IGame ) => {
-    
-    /*const { games,  } = useContext(GameContext) as IGameContext;
-    const [imagePath, setImagePath] = useState<string>("");
-
-    useEffect(() => {
-        getImagePathFromService();
-    }, []);*/
+const GameItem = ({ 
+    id, title, genre, platform, 
+    developer, publisher, releaseDate, 
+    price, rating, description, image  }: IGame ) => {
     
     return (
         <article>
