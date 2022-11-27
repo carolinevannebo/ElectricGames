@@ -1,5 +1,5 @@
 namespace ElectricGamesApi.Logic.Enumerations;
-
+[Flags]
 public enum GenreEnum
 {
     Action,

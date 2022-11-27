@@ -12,7 +12,7 @@ const GameList = () => {
                 key={`game-${index}`}
                 id={game.id}
                 title={game.title}
-                genre={convertGenre(parseInt(game.genre))}
+                genre={game.genre}
                 platform={game.platform}
                 developer={game.developer}
                 publisher={game.publisher}

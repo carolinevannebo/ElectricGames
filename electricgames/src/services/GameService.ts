@@ -70,6 +70,11 @@ const GameService = (
             return result.data;
         }
 
+        const putGameToServer = async (game: IGame, id: number) => {
+            const result = await axios.put(`${gameEndPoint}/${id}`, game);
+            return result.data;
+        }
+
         return {
             getImagePathFromServer,
             uploadImageToServer,
@@ -79,7 +84,8 @@ const GameService = (
             getGamesByGenreFromServer,
             getGamesByPlatformFromServer,
             getGamesByDeveloperFromServer,
-            postGameToServer
+            postGameToServer,
+            putGameToServer
         }
     }
 )();

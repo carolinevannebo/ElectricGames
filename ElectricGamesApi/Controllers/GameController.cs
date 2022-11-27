@@ -17,11 +17,14 @@ public class GameController : ControllerBase
     private readonly ElectricGamesContext _context;
 
     private readonly IWebHostEnvironment _hosting;
+    
+    private readonly ILogger<GameController> _logger;
 
-    public GameController(ElectricGamesContext context, IWebHostEnvironment hosting)
+    public GameController(ElectricGamesContext context, IWebHostEnvironment hosting, ILogger<GameController> logger)
     {
         _context = context;
         _hosting = hosting;
+        _logger = logger;
     }
 
     // GET: api/Game
@@ -156,10 +159,12 @@ public class GameController : ControllerBase
 
     // POST: api/Game
     [HttpPost]
+    //[Route("[action]")]
     public async Task<ActionResult<Game>> Post(Game game)
     {
+        _logger.LogInformation("Game posted", game);
+        Console.WriteLine("Game posted", game);
         
-
         var gameToAdd = new Game
         {
             Title = game.Title,
@@ -189,7 +194,7 @@ public class GameController : ControllerBase
     }
 
 
-    public GenreEnum ConvertGenre(string genre)
+    /*public GenreEnum ConvertGenre(string genre)
     {
         return genre switch
         {
@@ -210,7 +215,7 @@ public class GameController : ControllerBase
             "Strategy" => GenreEnum.Strategy,
             _ => GenreEnum.Unknown
         };
-    }
+    }*/
 
     /*[HttpPost]
     public IActionResult SaveImage([FromForm] IFormFile file) //mulig du må fjerne [FromForm]

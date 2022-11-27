@@ -10,6 +10,7 @@ public class Game : IGame
     [Key]
     public int Id { get; set; }
     public string Title { get; set; } = string.Empty;
+    [EnumDataType(typeof(GenreEnum))]// makes sure that the genre is a valid genre -- ny test
     public GenreEnum Genre { get; set; }
     public ICollection<string>? Platform { get; set; } = new List<string>();
     public string Developer { get; set; } = string.Empty;

@@ -1,6 +1,6 @@
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using ElectricGamesApi.Logic.Enumerations;
+//using System.Text.Json;
+//using System.Text.Json.Serialization;
+//using ElectricGamesApi.Logic.Enumerations;
 using ElectricGamesApi.Logic.Contexts;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,6 +23,8 @@ builder.Services.AddDbContext<ElectricGamesContext>(options => options.UseSqlite
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 
 var app = builder.Build();
 app.UseCors("AllowAll");
@@ -41,9 +43,9 @@ DefaultFilesOptions options = new DefaultFilesOptions();
 options.DefaultFileNames.Add("index.html");
 app.UseDefaultFiles(options);
 
-/*var jsonOptions = new JsonSerializerOptions();
-jsonOptions.Converters.Add(new JsonStringEnumConverter());
-var genre = JsonSerializer.Deserialize<GenreEnum>(json, jsonOptions);*/
+//var jsonOptions = new JsonSerializerOptions();
+//jsonOptions.Converters.Add(new JsonStringEnumConverter());
+//var genre = JsonSerializer.Deserialize<GenreEnum>(json, jsonOptions);
 //app.UseJsonOptions(jsonOptions);
 
 // Configure the HTTP request pipeline.
