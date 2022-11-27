@@ -98,6 +98,9 @@ h1 {
   color: #0cf4f6;
 }
 
+label {
+  color: white;
+}
 @font-face {
   font-family: 'Mina-Bold';
   src: url(../../assets/fonts/Mina/Mina-Bold.ttf);

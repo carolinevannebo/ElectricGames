@@ -41,14 +41,16 @@ h3 span {
 }
 
 p {
-    color: #e51b79;
+    /*color: #e51b79;*/
+    color: white;
     font-weight: 500;
     width: 100%;
 }
 
 p span {
     text-align: right;
-    color: rgb(182, 182, 255);
+    /*color: rgb(182, 182, 255);*/
+    color: white;
     font-weight: 400;
 }
 

@@ -18,6 +18,7 @@ public class ElectricGamesContext : DbContext
         {
             optionsBuilder.UseSqlite(@"Server=(localdb)\mssqllocaldb;Database=ElectricGamesApi;Trusted_Connection=True;");
         }*/
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
            /* modelBuilder.Entity<Game>().ToTable("Game");

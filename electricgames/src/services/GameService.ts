@@ -12,14 +12,23 @@ const GameService = (
         }
 
         const uploadImageToServer = async (image: File) => {
+            image.name.replace("." , "game.");
             const formData = new FormData();
+            
             formData.append("file", image);
             //const response = await axios.post(imageUploadEndPoint, formData);
             const response = await axios({
+                //url: imageUploadEndPoint,
                 url: imageUploadEndPoint,
                 method: "POST",
                 data: formData,
-                headers: {"Content-Type": "multipart/form-data"}
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                    "Access-Control-Allow-Origin": "http://localhost:3000",
+                    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+                    "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Authorization",
+                    "Access-Control-Allow-Credentials": "true"
+                }
             });
 
             formData.delete("file");
@@ -56,8 +65,8 @@ const GameService = (
             return result.data;
         }
 
-        const putGameToServer = async (game: IGame) => {
-            const result = await axios.put(`${gameEndPoint}/${game.id}`, game);
+        const postGameToServer = async (game: IGame) => {
+            const result = await axios.post(`${gameEndPoint}/`, game);
             return result.data;
         }
 
@@ -70,7 +79,7 @@ const GameService = (
             getGamesByGenreFromServer,
             getGamesByPlatformFromServer,
             getGamesByDeveloperFromServer,
-            putGameToServer
+            postGameToServer
         }
     }
 )();

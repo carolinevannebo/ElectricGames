@@ -20,6 +20,7 @@ function App() {
             <Route path='games/get-game-by-title' element={<GetGameByTitlePage/>}></Route>
             <Route path='games/get-games-by-genre' element={<GetGamesByGenrePage/>}></Route>
             <Route path='games/get-games-by-developer' element={<GetGamesByDeveloperPage/>}></Route>
+            <Route path='games/create-new-game' element={<GamePage/>}></Route>
           </Route>
           <Route path='/characters' element={<CharacterPage/>}></Route>
           <Route path='/locations' element={<LocationPage/>}></Route>

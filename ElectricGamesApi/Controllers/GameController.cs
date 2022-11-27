@@ -16,12 +16,12 @@ public class GameController : ControllerBase
 {
     private readonly ElectricGamesContext _context;
 
-    //private readonly IWebHostEnvironment _hosting;
+    private readonly IWebHostEnvironment _hosting;
 
     public GameController(ElectricGamesContext context, IWebHostEnvironment hosting)
     {
         _context = context;
-        //_hosting = hosting;
+        _hosting = hosting;
     }
 
     // GET: api/Game
@@ -158,6 +158,8 @@ public class GameController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Game>> Post(Game game)
     {
+        
+
         var gameToAdd = new Game
         {
             Title = game.Title,
@@ -170,8 +172,8 @@ public class GameController : ControllerBase
             Rating = game.Rating,
             Description = game.Description,
             Image = game.Image,
-            Characters = game.Characters,
-            Locations = game.Locations
+            //Characters = game.Characters,
+            //Locations = game.Locations
         };
 
         try
@@ -184,6 +186,30 @@ public class GameController : ControllerBase
         {
             return StatusCode(500, "Internal server error while attempting to add game");
         }
+    }
+
+
+    public GenreEnum ConvertGenre(string genre)
+    {
+        return genre switch
+        {
+            "Action" => GenreEnum.Action,
+            "ActionAdventure" => GenreEnum.ActionAdventure,
+            "Adventure" => GenreEnum.Adventure,
+            "Fighting" => GenreEnum.Fighting,
+            "Horror" => GenreEnum.Horror,
+            "MMO" => GenreEnum.MMO,
+            "Platformer" => GenreEnum.Platformer,
+            "Puzzle" => GenreEnum.Puzzle,
+            "Racing" => GenreEnum.Racing,
+            "RolePlaying" => GenreEnum.RolePlaying,
+            "SandBox" => GenreEnum.Sandbox,
+            "Shooter" => GenreEnum.Shooter,
+            "Simulation" => GenreEnum.Simulation,
+            "Sports" => GenreEnum.Sports,
+            "Strategy" => GenreEnum.Strategy,
+            _ => GenreEnum.Unknown
+        };
     }
 
     /*[HttpPost]

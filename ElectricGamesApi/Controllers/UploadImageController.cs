@@ -23,10 +23,17 @@ public class UploadImageController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult SaveImage([FromForm] IFormFile file, string type) //mulig du må fjerne [FromForm]
+    public IActionResult SaveImage([FromForm] IFormFile file) //mulig du må fjerne [FromForm]
     {
         string wwwrootPath = _hosting.WebRootPath;
-        var absolutePath = Path.Combine($"{wwwrootPath}/images/{type}/{file.FileName}");
+        
+        /*string type = "";
+        if (file.FileName.Contains("game")) { type = "games";}
+        else if (file.FileName.Contains("character")) { type = "characters";}
+        else if (file.FileName.Contains("location")) { type = "locations";}
+        else { type = "";}*/
+
+        var absolutePath = Path.Combine($"{wwwrootPath}/images/games/{file.FileName}");
         using (var fileStream = new FileStream(absolutePath, FileMode.Create))
         {
             file.CopyTo(fileStream);

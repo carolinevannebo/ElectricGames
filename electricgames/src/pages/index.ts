@@ -7,7 +7,7 @@ import GetGameByIdPage from "./games/GetGameByIdPage";
 import GetGameByTitlePage from "./games/GetGameByTitlePage";
 import GetGamesByGenrePage from "./games/GetGamesByGenrePage";
 import GetGamesByDeveloperPage from "./games/GetGamesByDeveloper";
-import CreateNewGame from "../components/games/CreateNewGame";
+import CreateNewGamePage from "./games/CreateNewGamePage";
 
 export { 
     HomePage,
@@ -19,5 +19,5 @@ export {
     GetGameByTitlePage,
     GetGamesByGenrePage,
     GetGamesByDeveloperPage,
-    CreateNewGame
+    CreateNewGamePage
 };

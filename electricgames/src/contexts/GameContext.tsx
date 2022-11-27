@@ -21,6 +21,10 @@ const GameProvider = ({ children }: Props) => {
         return await GameService.getImagePathFromServer();
     }
 
+    const uploadImageToService = async (image: File) => {
+        return await GameService.uploadImageToServer(image);
+    }
+
     const getAllGamesFromService = async () => {
         const response = await GameService.getAllGamesFromServer();
         setGame(response);
@@ -62,8 +66,8 @@ const GameProvider = ({ children }: Props) => {
         //setGame(response);
     }
 
-    const putGameToService = async (game: IGame) => {
-        const response = await GameService.putGameToServer(game);
+    const postGameToService = async (game: IGame) => {
+        const response = await GameService.postGameToServer(game);
         setGame(response);
     }
 
@@ -72,13 +76,14 @@ const GameProvider = ({ children }: Props) => {
         value={{
             games, 
             getImagePathFromService,
+            uploadImageToService,
             getAllGamesFromService,
             getGameByIdFromService,
             getGameByTitleFromService,
             getGamesByGenreFromService,
             getGamesByPlatformFromService,
             getGamesByDeveloperFromService,
-            putGameToService
+            postGameToService
         }}>
         {children}
     </GameContext.Provider>
