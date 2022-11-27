@@ -4,7 +4,7 @@ import {GameContext} from "../../contexts/GameContext";
 import IGame from "../../interfaces/games/IGame";
 import GameList from "./GameList";
 import Genre from "../../interfaces/games/GenreEnum";
-import { validateHeaderValue } from "http";
+import moment from "moment";
 
 const CreateNewGame = () => {
 
@@ -12,10 +12,11 @@ const CreateNewGame = () => {
     //const [game, setGame] = useState<IGame>();
     const [title, setTitle] = useState<string>("");
     const [genre, setGenre] = useState<Genre>(Genre.Unknown);
-    const [platform, setPlatform] = useState<string>("");
+    const [platform, setPlatform] = useState<string[]>([]);
     const [developer, setDeveloper] = useState<string>("");
     const [publisher, setPublisher] = useState<string>("");
-    const [releaseDate, setReleaseDate] = useState<Date>({} as Date);
+    const [releaseDate, setReleaseDate] = useState(moment().format("YYYY-MM-DD"));
+    //const [releaseDate, setReleaseDate] = useState<Date>({} as Date);
     const [price, setPrice] = useState<number>(0);
     const [rating, setRating] = useState<number>(0);
     const [description, setDescription] = useState<string>("");
@@ -39,7 +40,7 @@ const CreateNewGame = () => {
                 //setGenre(value);
                 //break;
             case "platform":
-                setPlatform(value);
+                setPlatform([value]);
                 break;
             case "developer":
                 setDeveloper(value);
@@ -48,7 +49,7 @@ const CreateNewGame = () => {
                 setPublisher(value);
                 break;
             case "releaseDate":
-                setReleaseDate(new Date(value));
+                setReleaseDate(moment(new Date(value)).format("YYYY-MM-DD"));
                 break;
             case "price":
                 setPrice(Number(value));
@@ -146,7 +147,7 @@ const CreateNewGame = () => {
 
                 <select id="genre" name="genre" onChange={handleGenreSelect}>
                     {Object.keys(Genre).filter((key) => isNaN(Number(key))).map((key, value) => (
-                        <option key={key} value={Number(value)}>{key}</option>
+                        <option key={key} value={key}>{key}</option>
                     ))}
                 </select>
 

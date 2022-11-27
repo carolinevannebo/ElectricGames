@@ -5,6 +5,7 @@ import GetGameByTitlePage from "./GetGameByTitlePage";
 import GetGamesByGenrePage from "./GetGamesByGenrePage";
 import GetGamesByDeveloperPage from "./GetGamesByDeveloper";
 import CreateNewGamePage from "./CreateNewGamePage";
+import DeleteGamePage from "./DeleteGamePage";
 import '../../styles/shared/App.css';
 
 const GamePage = () => {
@@ -34,6 +35,9 @@ const GamePage = () => {
                         <li>
                             <Link to={`games/create-new-game`}>Create New Game</Link>
                         </li>
+                        <li>
+                            <Link to={`games/delete-game`}>Delete Game</Link>
+                        </li>
                     </ul>
                 </div>
             </section>
@@ -46,6 +50,7 @@ const GamePage = () => {
                     <Route path="games/get-games-by-genre" element={<GetGamesByGenrePage/>}></Route>
                     <Route path="games/get-games-by-developer" element={<GetGamesByDeveloperPage/>}></Route>
                     <Route path="games/create-new-game" element={<CreateNewGamePage/>}></Route>
+                    <Route path="games/delete-game" element={<DeleteGamePage/>}></Route>
                 </Routes>
             </section>
             

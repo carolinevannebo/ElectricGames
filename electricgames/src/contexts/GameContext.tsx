@@ -76,6 +76,11 @@ const GameProvider = ({ children }: Props) => {
         setGame(response);
     }
 
+    const deleteGameFromService = async (id: number) => {
+        const response = await GameService.deleteGameFromServer(id);
+        setGame(response);
+    }
+
   return (
     <GameContext.Provider 
         value={{
@@ -89,7 +94,8 @@ const GameProvider = ({ children }: Props) => {
             getGamesByPlatformFromService,
             getGamesByDeveloperFromService,
             postGameToService,
-            putGameToService
+            putGameToService,
+            deleteGameFromService
         }}>
         {children}
     </GameContext.Provider>

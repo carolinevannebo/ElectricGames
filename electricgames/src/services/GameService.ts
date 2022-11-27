@@ -75,6 +75,11 @@ const GameService = (
             return result.data;
         }
 
+        const deleteGameFromServer = async (id: number) => {
+            const result = await axios.delete(`${gameEndPoint}/${id}`);
+            return result.data;
+        }
+
         return {
             getImagePathFromServer,
             uploadImageToServer,
@@ -85,7 +90,8 @@ const GameService = (
             getGamesByPlatformFromServer,
             getGamesByDeveloperFromServer,
             postGameToServer,
-            putGameToServer
+            putGameToServer,
+            deleteGameFromServer
         }
     }
 )();

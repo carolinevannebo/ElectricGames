@@ -2,6 +2,7 @@ using ElectricGamesApi.Logic.Interfaces;
 using ElectricGamesApi.Logic.Enumerations;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ElectricGamesApi.Logic.Models;
 
@@ -10,7 +11,8 @@ public class Game : IGame
     [Key]
     public int Id { get; set; }
     public string Title { get; set; } = string.Empty;
-    [EnumDataType(typeof(GenreEnum))]// makes sure that the genre is a valid genre -- ny test
+//    [EnumDataType(typeof(GenreEnum))]// makes sure that the genre is a valid genre -- ny test
+    [JsonConverter(typeof(JsonStringEnumConverter))] // <-- ny test
     public GenreEnum Genre { get; set; }
     public ICollection<string>? Platform { get; set; } = new List<string>();
     public string Developer { get; set; } = string.Empty;

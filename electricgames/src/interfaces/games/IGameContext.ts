@@ -13,6 +13,7 @@ interface IGameContext {
     getGamesByDeveloperFromService: (developer: string) => void;
     postGameToService: (game: IGame) => void;
     putGameToService: (game: IGame, id: number) => void;
+    deleteGameFromService: (id: number) => void;
 }
 
 export default IGameContext;

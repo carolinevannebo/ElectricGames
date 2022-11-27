@@ -4,10 +4,10 @@ interface IGame {
     id?: number;
     title: string;
     genre: Genre;
-    platform: string;
+    platform: string[];
     developer: string;
     publisher: string;
-    releaseDate: Date; // var string
+    releaseDate: string;
     price: number;
     rating: number;
     description: string;
