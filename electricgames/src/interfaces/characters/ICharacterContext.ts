@@ -5,7 +5,7 @@ interface ICharacterContext {
     getAllCharactersFromService: () => void;
     getCharacterByIdFromService: (id: number) => void;
     getCharacterByNameFromService: (name: string) => void;
-    getCharacterByGameFromService: (game: string) => void;
+    getCharactersByGameFromService: (game: string) => void;
 }
 
 export default ICharacterContext;

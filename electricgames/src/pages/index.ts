@@ -10,6 +10,7 @@ import GetGamesByDeveloperPage from "./games/GetGamesByDeveloper";
 import CreateNewGamePage from "./games/CreateNewGamePage";
 import UpdateGamePage from "./games/UpdateGamePage";
 import DeleteGamePage from "./games/DeleteGamePage";
+import GetAllCharactersPage from "./characters/GetAllCharactersPage";
 
 export { 
     HomePage,
@@ -23,5 +24,6 @@ export {
     GetGamesByDeveloperPage,
     UpdateGamePage,
     CreateNewGamePage,
-    DeleteGamePage
+    DeleteGamePage,
+    GetAllCharactersPage
 };

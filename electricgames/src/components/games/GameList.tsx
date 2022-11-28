@@ -25,11 +25,7 @@ const GameList = () => {
         ));
     };
 
-    return (
-        <section className="page-result">
-            <section className="list-container">{getGameItems()}</section>
-        </section>
-    )
+    return (<section className="list-container">{getGameItems()}</section>)
 }
 
 export default GameList;
