@@ -5,23 +5,21 @@ import IGame from "../../interfaces/games/IGame";
 import GameList from "./GameList";
 import Genre from "../../interfaces/games/GenreEnum";
 import moment from "moment";
+import "../../styles/games/Form.css"
 
 const CreateNewGame = () => {
 
     const { postGameToService, getAllGamesFromService, uploadImageToService } = useContext(GameContext) as IGameContext;
-    //const [game, setGame] = useState<IGame>();
     const [title, setTitle] = useState<string>("");
     const [genre, setGenre] = useState<Genre>(Genre.Unknown);
     const [platform, setPlatform] = useState<string[]>([]);
     const [developer, setDeveloper] = useState<string>("");
     const [publisher, setPublisher] = useState<string>("");
     const [releaseDate, setReleaseDate] = useState(moment().format("YYYY-MM-DD"));
-    //const [releaseDate, setReleaseDate] = useState<Date>({} as Date);
     const [price, setPrice] = useState<number>(0);
     const [rating, setRating] = useState<number>(0);
     const [description, setDescription] = useState<string>("");
     const [image, setImage] = useState<File | null>(null);
-    //const image
 
     useEffect(() => {
         getAllGamesFromService();
@@ -29,16 +27,12 @@ const CreateNewGame = () => {
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.currentTarget;
-        //const image = event.target.files![0];
 
         console.log(`handleChange - name: ${name}, value: ${value}, image: ${image}`);
         switch (name) {
             case "title":
                 setTitle(value);
                 break;
-            //case "genre":
-                //setGenre(value);
-                //break;
             case "platform":
                 setPlatform([value]);
                 break;
@@ -60,12 +54,7 @@ const CreateNewGame = () => {
             case "description":
                 setDescription(value);
                 break;
-            //case "image":
-              //  setImage(image);
-             //   break;
         }
-        //const image = event.target.files![0];
-        //setImage(image);
     };
 
     const handleGenreSelect = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -78,50 +67,12 @@ const CreateNewGame = () => {
         setImage(image);
     }
 
-    /*const convertGenreToNumber = (genre: string) => {
-        switch (genre) {
-            case "Action":
-                return 0;
-            case "ActionAdventure":
-                return 1;
-            case "Adventure":
-                return 2;
-            case "Fighting":
-                return 3;
-            case "Horror":
-                return 4;
-            case "MMO":
-                return 5;
-            case "Platformer":
-                return 6;
-            case "Puzzle":
-                return 7;
-            case "Racing":
-                return 8;
-            case "RolePlaying":
-                return 9;
-            case "SandBox":
-                return 10;
-            case "Shooter":
-                return 11;
-            case "Simulation":
-                return 12;
-            case "Sports":
-                return 13;
-            case "Strategy":
-                return 14;
-            default:
-                return 15;
-        }
-    };*/
-
     const uploadImage = () => {
         image != null ? uploadImageToService(image) : console.log("No image selected");
     }
 
     const handleSubmit = () => {
         uploadImage();
-        //event.preventDefault();
         const game: IGame = {
             title: title,
             genre: genre,
@@ -137,37 +88,52 @@ const CreateNewGame = () => {
 
         postGameToService(game);
     }
-                    // fjernet  onSubmit={handleSubmit} fra form
+    
     return (
         <section className="page-content-choice">
             <h3>Create new game</h3>
             <form className="page-form">
-                <label htmlFor="title">Title</label>
-                <input type="text" id="title" name="title" onChange={handleChange}/>
+                <div className="form-group">
+                    <label htmlFor="title">Title</label>
+                    <input type="text" id="title" name="title" onChange={handleChange}/>
 
-                <select id="genre" name="genre" onChange={handleGenreSelect}>
-                    {Object.keys(Genre).filter((key) => isNaN(Number(key))).map((key, value) => (
-                        <option key={key} value={key}>{key}</option>
-                    ))}
-                </select>
+                    <label htmlFor="genre">Genre</label>
+                    <select id="genre" name="genre" onChange={handleGenreSelect}>
+                        {Object.keys(Genre).filter((key) => isNaN(Number(key))).map((key, value) => (
+                            <option key={key} value={key}>{key}</option>
+                        ))}
+                    </select>
+                </div>
 
-                <label htmlFor="platform">Platform</label>
-                <input type="text" id="platform" name="platform" onChange={handleChange}/>
-                <label htmlFor="developer">Developer</label>
-                <input type="text" id="developer" name="developer" onChange={handleChange}/>
-                <label htmlFor="publisher">Publisher</label>
-                <input type="text" id="publisher" name="publisher" onChange={handleChange}/>
-                <label htmlFor="releaseDate">Release Date</label>
-                <input type="date" id="releaseDate" name="releaseDate" onChange={handleChange}/>
-                <label htmlFor="price">Price</label>
-                <input type="number" id="price" name="price" onChange={handleChange}/>
-                <label htmlFor="rating">Rating</label>
-                <input type="number" id="rating" name="rating" onChange={handleChange}/>
-                <label htmlFor="description">Description</label>
-                <input type="text" id="description" name="description" onChange={handleChange}/>
-                <label htmlFor="image">Image</label>
-                <input type="file" id="image" name="image" onChange={handleImageChange}/>
-                <button type="button" onClick={handleSubmit}>Submit</button>
+                <div className="form-group">
+                    <label htmlFor="platform">Platform</label>
+                    <input type="text" id="platform" name="platform" onChange={handleChange}/>
+                    <label htmlFor="developer">Developer</label>
+                    <input type="text" id="developer" name="developer" onChange={handleChange}/>
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="publisher">Publisher</label>
+                    <input type="text" id="publisher" name="publisher" onChange={handleChange}/>
+                    <label htmlFor="releaseDate">Release Date</label>
+                    <input type="date" id="releaseDate" name="releaseDate" onChange={handleChange}/>
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="price">Price</label>
+                    <input type="number" id="price" name="price" onChange={handleChange}/>
+                    <label htmlFor="rating">Rating</label>
+                    <input type="number" id="rating" name="rating" onChange={handleChange}/>
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="description">Description</label>
+                    <input type="text" id="description" name="description" onChange={handleChange}/>
+                    <label htmlFor="image">Image</label>
+                    <input type="file" id="image" name="image" onChange={handleImageChange}/>
+                </div>
+
+                <button className="save-btn" type="button" onClick={handleSubmit}>Submit</button>
             </form>
 
             <section className="page-result">

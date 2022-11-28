@@ -52,13 +52,11 @@
 .page-result { 
   grid-area: 4 / 2 / 7 / 5;
   max-height: 80vh;
-  /*overflow-y: scroll;*/
 }
 
 .list-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  /*grid-template-rows: repeat(2, 1fr);*/
   grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 10px;

@@ -1,7 +1,7 @@
 import UpdateGame from "../../components/games/UpdateGame";
 
 const UpdateGamePage = () => {
-    return (<UpdateGame />);
+    return (<UpdateGame />)
 }
 
 export default UpdateGamePage;

@@ -1,7 +1,7 @@
 import DeleteGame from "../../components/games/DeleteGame";
 
 const DeleteGamePage = () => {
-    return (<DeleteGame />);
+    return (<DeleteGame />)
 }
 
 export default DeleteGamePage;
