@@ -8,6 +8,7 @@ import GetGameByTitlePage from "./games/GetGameByTitlePage";
 import GetGamesByGenrePage from "./games/GetGamesByGenrePage";
 import GetGamesByDeveloperPage from "./games/GetGamesByDeveloper";
 import CreateNewGamePage from "./games/CreateNewGamePage";
+import UpdateGamePage from "./games/UpdateGamePage";
 import DeleteGamePage from "./games/DeleteGamePage";
 
 export { 
@@ -20,6 +21,7 @@ export {
     GetGameByTitlePage,
     GetGamesByGenrePage,
     GetGamesByDeveloperPage,
+    UpdateGamePage,
     CreateNewGamePage,
     DeleteGamePage
 };

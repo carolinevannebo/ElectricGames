@@ -21,6 +21,7 @@ function App() {
             <Route path='games/get-games-by-genre' element={<GetGamesByGenrePage/>}></Route>
             <Route path='games/get-games-by-developer' element={<GetGamesByDeveloperPage/>}></Route>
             <Route path='games/create-new-game' element={<GamePage/>}></Route>
+            <Route path='games/update-game' element={<GamePage/>}></Route>
           </Route>
           <Route path='/characters' element={<CharacterPage/>}></Route>
           <Route path='/locations' element={<LocationPage/>}></Route>
@@ -31,3 +32,5 @@ function App() {
 }
 
 export default App;
+
+//veldig mulig subroutes er redundant (inni game)
