@@ -1,5 +1,3 @@
 # ElectricGames
-
-Exam in Web Development
-#
-Grade: A
+# Exam in Web Development
+# Grade: A
